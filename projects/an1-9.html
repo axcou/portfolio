@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAÉ 2.03 - Régression sur données réelles – Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../index.html#projets" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour
+      </a>
+      <span class="topbar-logo">SD<span>.</span></span>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="background: linear-gradient(135deg, #f6d365, #fda085);">
+    <div class="project-hero-inner">
+      <h1>SAÉ 2.03 - Régression sur données réelles</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">R</span>
+        <span class="hero-tag">Régression linéaire</span>
+        <span class="hero-tag">Régression exponentielle</span>
+        <span class="hero-tag">Statistiques</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-body">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Objectif</h2>
+        <p>Étudier la relation bivariée entre le dosage d'un sérum (X, en mL) et la quantité de bactéries <em>Zomb-2025</em> restantes dans l'organisme (Y, en UFC/mL). Déterminer si une corrélation existe, ajuster des modèles prédictifs linéaire et exponentiel, puis les comparer pour prévoir l'efficacité du sérum à un dosage donné.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'ai fait</h2>
+        <ul>
+          <li>Analyse descriptive univariée de Y : moyenne (0,439 UFC/mL), variance (0,067), boxplot - distribution symétrique, médiane ≈ 0,4</li>
+          <li>Calcul de la covariance (Cov = -0,724) et du coefficient de corrélation de Pearson (r = -0,949), confirmant une forte relation négative</li>
+          <li>Tests de normalité sur X et Y : Q-Q plots visuels et test de Shapiro-Wilk</li>
+          <li>Ajustement d'un modèle linéaire par moindres carrés, avec démonstration mathématique des formules de â et b̂</li>
+          <li>Ajustement d'un modèle exponentiel via transformation logarithmique pour linéariser l'équation</li>
+          <li>Analyse des résidus : normalité (Shapiro-Wilk), indépendance (ACF + test de Durbin-Watson)</li>
+          <li>Comparaison des deux modèles via R² et prédiction pour x = 8 mL</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Résultat obtenu</h2>
+        <ul>
+          <li>r = -0,949 : forte corrélation négative - plus le dosage augmente, moins il y a de bactéries</li>
+          <li>Modèle linéaire : ŷ = -0,0835x + 0,8565 - R² = 0,901, erreur résiduelle faible (0,083)</li>
+          <li>Modèle exponentiel : ŷ = 1,034 × e<sup>-0,209x</sup> - R² = 0,915, erreur résiduelle plus élevée (0,192)</li>
+          <li>Prédiction pour une dose de 8 mL : ~0,191 UFC/mL (moyenne des deux modèles)</li>
+          <li>Limite détectée : autocorrélation positive des résidus (Durbin-Watson = 0,616) - le modèle linéaire simple ne capture pas toute la structure des données</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Compétences mobilisées</h2>
+        <ul>
+          <li>R : ggplot2, lmtest - nuage de points, boxplot, Q-Q plot, droite de régression</li>
+          <li>Régression linéaire simple par moindres carrés (démonstration et application)</li>
+          <li>Transformation logarithmique pour ajuster un modèle exponentiel</li>
+          <li>Tests statistiques : Shapiro-Wilk (normalité), Durbin-Watson (indépendance des résidus)</li>
+          <li>Comparaison de modèles via R² et erreur résiduelle standard</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Difficultés rencontrées</h2>
+        <ul>
+          <li>Y ne suit pas une distribution normale (Shapiro-Wilk p = 0,003) - l'hypothèse standard de normalité de la variable expliquée n'est pas vérifiée</li>
+          <li>Autocorrélation des résidus détectée (DW = 0,616) : le modèle linéaire simple a des limites structurelles sur ces données</li>
+          <li>Choisir entre les deux modèles : l'exponentiel a un R² supérieur mais une erreur résiduelle plus haute - les deux critères pointent dans des directions différentes</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'en retiens</h2>
+        <p>Un bon R² ne suffit pas à valider un modèle. L'analyse des résidus est tout aussi importante : des résidus autocorrélés signalent une structure que le modèle n'a pas capturée. J'ai aussi compris l'intérêt de la transformation logarithmique - elle permet d'appliquer les outils de la régression linéaire à des relations non linéaires, en changeant simplement l'espace de travail.</p>
+      </div>
+
+      <div class="project-links">
+        <a href="#" class="btn btn-primary">GitHub</a>
+        <a href="#" class="btn btn-outline">Rapport</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="container">
+    <nav class="project-nav">
+      <a href="an1-8.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        SAÉ 2.02
+      </a>
+      <a href="an1-10.html">
+        SAÉ 2.04
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 15,12 9,18"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>

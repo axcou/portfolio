@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAÉ 2.01 - Conception et implémentation d'une base de données – Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../index.html#projets" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour
+      </a>
+      <span class="topbar-logo">SD<span>.</span></span>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="background: linear-gradient(135deg, #fccb90, #d57eeb);">
+    <div class="project-hero-inner">
+      <h1>SAÉ 2.01 - Conception et implémentation d'une base de données</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">SQL</span>
+        <span class="hero-tag">MCD</span>
+        <span class="hero-tag">PostgreSQL</span>
+        <span class="hero-tag">Modélisation</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-body">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Objectif</h2>
+        <p>À partir de deux jeux de données CSV sur les échanges de technologies bas carbone, concevoir un schéma relationnel complet, créer la base SQL, la peupler efficacement, puis en extraire des analyses pertinentes via des requêtes.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'ai fait</h2>
+        <ul>
+          <li>Analyse des données sources et regroupement des attributs clés</li>
+          <li>Modélisation d'un schéma EA optimisé avec une association réflexive</li>
+          <li>Construction du schéma relationnel en respectant la normalisation jusqu'en BCNF</li>
+          <li>Création des tables SQL et import des données via des tables temporaires</li>
+          <li>Transformation des colonnes d'années en lignes avec <code>UNNEST()</code></li>
+          <li>Rédaction de requêtes pour alimenter un tableau de bord dans Metabase</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Résultat obtenu</h2>
+        <ul>
+          <li>Une base de données relationnelle optimisée, peuplée à partir de données brutes CSV</li>
+          <li>Plusieurs visualisations dans un tableau de bord Metabase : part des échanges bilatéraux vs nationaux dans le monde, rôle central de la Chine dans les exports en 2021</li>
+          <li>Scripts SQL vérifiés, efficaces et réutilisables</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Compétences mobilisées</h2>
+        <ul>
+          <li>Conception de base de données (modèle EA, relationnel, normalisation jusqu'en BCNF)</li>
+          <li>Écriture de scripts SQL complets (création, peuplement, jointures, requêtes avancées)</li>
+          <li>Manipulation de données via <code>UNNEST()</code> pour gérer des structures non adaptées</li>
+          <li>Résolution de problèmes liés aux formats complexes (transformation colonnes années -> lignes)</li>
+          <li>Utilisation d'un outil de visualisation externe (Metabase)</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Difficultés rencontrées</h2>
+        <ul>
+          <li>Certaines règles métier du cahier des charges étaient ambiguës et impliquaient des choix de modélisation (association ternaire vs. entité intermédiaire) : j'ai documenté les hypothèses retenues et leurs conséquences</li>
+          <li>L'alimentation de la base avec les fichiers fournis a révélé des incohérences dans les données sources (valeurs manquantes, doublons) qu'il a fallu gérer avant l'insertion</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'en retiens</h2>
+        <p>Ce projet m'a permis de comprendre concrètement comment concevoir et structurer une base de données pour l'analyse. J'ai aussi découvert l'intérêt de bien préparer les données en amont, de choisir une modélisation adaptée et d'utiliser des requêtes performantes pour interroger efficacement de grands volumes. C'est une expérience directement liée aux missions d'un data engineer, et cela m'a encore plus motivé à me spécialiser dans ce domaine.</p>
+      </div>
+
+      <div class="project-links">
+        <a href="#" class="btn btn-primary">GitHub</a>
+        <a href="#" class="btn btn-outline">Rapport</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="container">
+    <nav class="project-nav">
+      <a href="an1-6.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        SAÉ 1.06
+      </a>
+      <a href="an1-8.html">
+        SAÉ 2.02
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 15,12 9,18"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>

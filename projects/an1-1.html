@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAÉ 1.01 - Reporting à partir de données stockées dans un SGBD relationnel – Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../index.html#projets" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour
+      </a>
+      <span class="topbar-logo">SD<span>.</span></span>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+    <div class="project-hero-inner">
+      <h1>SAÉ 1.01 - Reporting à partir de données stockées dans un SGBD relationnel</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">SQL</span>
+        <span class="hero-tag">Python</span>
+        <span class="hero-tag">Excel</span>
+        <span class="hero-tag">Reporting</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-body">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Objectif</h2>
+        <p>À partir d'une base de données SQL sur les catastrophes climatiques (feux, inondations, etc.), rédiger une documentation d'installation de PostgreSQL et d'initialisation des tables, réaliser deux visualisations guidées et une libre, puis rassembler le tout dans un rapport de 6 pages. Les visualisations ont été produites avec Metabase.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'ai fait</h2>
+        <ul>
+          <li>Rédaction de la documentation d'installation de PostgreSQL, d'exécution du script de création de la base et de mise en place de Metabase</li>
+          <li>Réalisation de deux visualisations guidées : nombre total de catastrophes par année, et nombre de chaque type de catastrophe par année</li>
+          <li>Conception d'une visualisation libre : carte choroplèthe mondiale du nombre d'inondations par pays, via une requête SQL personnalisée avec double JOIN (<code>country</code> + <code>disaster</code>) et <code>GROUP BY</code></li>
+          <li>Rédaction d'un rapport de 6 pages structuré en deux parties : environnement technique (installation) et travail exploratoire (graphiques)</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Résultat obtenu</h2>
+        <ul>
+          <li>Une carte choroplèthe mondiale affichant la répartition des inondations par pays (dégradé de couleur via le code ISO2)</li>
+          <li>Deux graphiques guidés illustrant l'évolution temporelle et la répartition par type des catastrophes climatiques</li>
+          <li>Un rapport de 6 pages documentant l'environnement de travail et les analyses produites</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Compétences mobilisées</h2>
+        <ul>
+          <li>SQL : jointures multiples, agrégations (<code>COUNT</code>, <code>GROUP BY</code>), filtrage (<code>WHERE</code>), utilisation d'alias pour la lisibilité</li>
+          <li>Création de visualisations dans Metabase : histogrammes et carte choroplèthe</li>
+          <li>Rédaction de documentation technique (installation, exécution de scripts SQL)</li>
+          <li>Structuration d'un rapport analytique en séparant partie technique et partie analytique</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Difficultés rencontrées</h2>
+        <ul>
+          <li>Rendre la requête SQL lisible et bien structurée : choisir des alias explicites (<code>country_iso</code>, <code>disaster_nom</code>, <code>disaster_compte</code>), organiser les <code>JOIN</code> dans un ordre logique et produire un code compréhensible à la relecture</li>
+          <li>Construire la structure du rapport de façon cohérente : séparer installation et analyse sans rendre la lecture fragmentée</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'en retiens</h2>
+        <p>Metabase et SQL sont des outils qui ont directement resurgi dans d'autres SAÉ (notamment la 2.01). Cette SAÉ m'a surtout appris qu'une visualisation pertinente se réfléchit avant de se coder : choisir une carte choroplèthe pour les inondations par pays, c'est un choix de fond qui conditionne toute la lisibilité du résultat - et y passer du temps vaut le coup.</p>
+      </div>
+
+      <div class="project-links">
+        <a href="#" class="btn btn-primary">GitHub</a>
+        <a href="#" class="btn btn-outline">Rapport</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="container">
+    <nav class="project-nav">
+      <a href="../index.html#projets">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour aux projets
+      </a>
+      <a href="an1-2.html">
+        SAÉ 1.02
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 15,12 9,18"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>

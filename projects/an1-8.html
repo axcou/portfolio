@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAÉ 2.02 - Estimation par échantillonnage – Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../index.html#projets" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour
+      </a>
+      <span class="topbar-logo">SD<span>.</span></span>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="background: linear-gradient(135deg, #e0c3fc, #8ec5fc);">
+    <div class="project-hero-inner">
+      <h1>SAÉ 2.02 - Estimation par échantillonnage</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">R</span>
+        <span class="hero-tag">Statistiques inférentielles</span>
+        <span class="hero-tag">Sondage</span>
+        <span class="hero-tag">Intervalles de confiance</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-body">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Objectif</h2>
+        <p>À partir d'une base de 500 000 individus simulée d'après les statistiques INSEE, estimer des paramètres de population (moyenne d'âge, proportion par sexe, niveau d'études) sans accéder à l'intégralité des données - en tirant des échantillons aléatoires. L'enjeu : construire des intervalles de confiance bilatéraux et unilatéraux, comprendre la fluctuation d'échantillonnage, et évaluer la qualité des estimations.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'ai fait</h2>
+        <ul>
+          <li>Écrit une fonction <code>echantillonnage()</code> en R pour tirer des échantillons aléatoires simples sans remise</li>
+          <li>Estimations ponctuelles : âge moyen (n=100 -> 39,36 ans), variance non biaisée (577,75), puis par sexe (femmes : 43,99 ans, hommes : 43,50 ans)</li>
+          <li>Simulation de 500 échantillons (n=25 puis n=100) pour visualiser la fluctuation d'échantillonnage via histogrammes</li>
+          <li>Construction d'intervalles de confiance bilatéraux (loi de Student, variance inconnue) et unilatéraux ([a ; +∞[ et ]−∞ ; b])</li>
+          <li>Étude de la couverture : simulation de 1 000 IC pour différentes tailles (n=30, 50, 100) et niveaux de confiance (90 %, 95 %, 99 %)</li>
+          <li>IC pour une proportion : proportion d'hommes (p̂ = 0,4879) ; calcul de la taille minimale d'échantillon pour une longueur d'IC ≤ 1 %</li>
+          <li>Analyse libre : lien âge × niveau d'études - IC unilatéraux par tranche d'âge, test du Chi², test de proportions, régression logistique</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Résultat obtenu</h2>
+        <ul>
+          <li>IC bilatéral à 95 % pour l'âge moyen des hommes (n=100) : [38,87 ; 48,13] ; IC unilatéraux : [35,37 ; +∞[ et ]−∞ ; 43,35]</li>
+          <li>Proportion d'hommes : p̂ = 0,4879, IC à 95 % : [0,4865 ; 0,4893] - intervalles très serrés même à 99,9 % grâce à la taille de la base</li>
+          <li>Taille minimale pour IC de longueur ≤ 1 % : 38 415 individus (majorant de variance) ou 38 393 (variance estimée)</li>
+          <li>Couverture simulée sur 1 000 IC : très proche des niveaux théoriques, léger écart à 95 % pour n=30 (0,939 au lieu de 0,95)</li>
+          <li>Lien âge/Bac+ confirmé : Chi² (p &lt; 0,001), test de proportions (p &lt; 0,001), régression logistique à coefficient négatif - la probabilité d'avoir le Bac diminue régulièrement avec l'âge entre 20 et 80 ans</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Compétences mobilisées</h2>
+        <ul>
+          <li>Statistiques inférentielles : estimation ponctuelle, IC bilatéraux/unilatéraux, loi de Student, loi normale, proportion</li>
+          <li>Programmation R : fonctions custom, boucles for, simulation Monte Carlo</li>
+          <li>Vérification a posteriori de la qualité des estimations (couverture réelle vs théorique)</li>
+          <li>Tests d'hypothèses : Chi², test de proportions, régression logistique</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Difficultés rencontrées</h2>
+        <ul>
+          <li>Choisir le bon quantile selon le type d'IC : bilatéral (α/2) vs unilatéral (α), Student vs normale - la distinction était subtile à mettre en œuvre concrètement</li>
+          <li>Interpréter l'écart de couverture à n=30 : comprendre pourquoi un IC à 95 % ne couvre pas exactement 95 % des cas sur de petits échantillons</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'en retiens</h2>
+        <p>La simulation de 500 moyennes a rendu la fluctuation d'échantillonnage visible et concrète - bien plus qu'une formule. L'autre enseignement clé : un intervalle de confiance ne dit pas que la vraie valeur a 95 % de chances d'être dedans. Il dit que 95 % des intervalles construits de cette façon contiendraient la vraie valeur. La simulation des 1 000 IC a transformé cette nuance abstraite en quelque chose que j'ai réellement observé.</p>
+      </div>
+
+      <div class="project-links">
+        <a href="#" class="btn btn-primary">GitHub</a>
+        <a href="#" class="btn btn-outline">Rapport</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="container">
+    <nav class="project-nav">
+      <a href="an1-7.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        SAÉ 2.01
+      </a>
+      <a href="an1-9.html">
+        SAÉ 2.03
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 15,12 9,18"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>

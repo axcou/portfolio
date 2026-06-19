@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAÉ 4.02 - Reporting d'une analyse multivariée – Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../index.html#projets" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour
+      </a>
+      <span class="topbar-logo">SD<span>.</span></span>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="background: linear-gradient(135deg, #fccb90, #d57eeb);">
+    <div class="project-hero-inner">
+      <h1>SAÉ 4.02 - Reporting d'une analyse multivariée</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">Python</span>
+        <span class="hero-tag">ACP</span>
+        <span class="hero-tag">Clustering</span>
+        <span class="hero-tag">Régression multiple</span>
+        <span class="hero-tag">Data Mining</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-body">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Objectif</h2>
+        <p>Identifier les principaux déterminants économiques, démographiques et industriels des émissions de CO₂ et de GES à l'échelle mondiale, et proposer des leviers d'action prioritaires. Données : base OWID + EDGAR 2025, 218 pays, 2013-2022, 2 180 observations × 60 variables. Projet réalisé avec Ibrahim Benkherfellah et Nathan Ruelle.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'ai fait</h2>
+        <ul>
+          <li>Nettoyage et vérification de cohérence : écart entre somme des CO₂ fossiles et total &lt; 15 % pour 213/213 pays ; transformation logarithmique des variables intensives pour neutraliser les effets de taille</li>
+          <li>Analyse univariée : boxplots, distributions, évolution temporelle 2013->2022 - aucune part sectorielle n'a varié de plus de 2 points sur 10 ans (forte inertie du système énergétique)</li>
+          <li>Analyse bivariée : matrices de corrélations brutes puis sur variables intensives, gestion de la multicolinéarité ; corrélation la plus forte : CO₂/hab vs PIB/hab (r = 0,91)</li>
+          <li>Classification 2D : CAH (Ward) + K-Means sur log(CO₂/hab) × log(PIB/hab) - 4 clusters, silhouette K-Means = 0,488</li>
+          <li>ACP : 15 variables intensives standardisées -> 6 composantes principales (76 % de variance) ; C1 = intensité fossile (32 %), C2 = charbon + GES agricoles (14 %), C3 = dimension agricole pure (13 %)</li>
+          <li>Régression linéaire multiple : sélection par R² ajusté, modèle final à 6 variables - PIB/hab, part charbon, CH₄ fugitif, CH₄ déchets, F-gaz industriels, intensité énergétique</li>
+          <li>Classification en 15 dimensions : CAH + K-Means sur l'ensemble des variables intensives - 4 profils de pays</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Résultat obtenu</h2>
+        <ul>
+          <li>Régression : R² = 0,852 - à iso-richesse, les choix énergétiques expliquent +29,5 points de variance par rapport au PIB seul (0,556 -> 0,852) ; le charbon ajoute 3,46 t CO₂/hab par unité de part dans le mix</li>
+          <li>ACP : 5 dimensions nécessaires - réduire à 2D occulte entièrement la dimension agricole (cos² de 0,27 en 2D vs 0,92 en 3D)</li>
+          <li>4 profils de pays identifiés en 15D : industrialisés (Chine, USA, Inde), faibles émissions (France, Brésil, Nigeria), états pétroliers (Qatar, Arabie Saoudite - extrêmes sur C1), agro-exportateurs (Australie, Nouvelle-Zélande, Uruguay - +3,7σ sur la dimension agricole)</li>
+          <li>Le cluster agro-exportateur est invisible en classification 2D - il n'émerge qu'en espace de 15 variables</li>
+          <li>3 leviers prioritaires identifiés : sortie du charbon, réduction des émissions fugitives de méthane, transition agricole</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Compétences mobilisées</h2>
+        <ul>
+          <li>Pipeline complet de Data Mining : EDA -> bivarié -> ACP -> régression multiple -> clustering multidimensionnel</li>
+          <li>Python : pandas, numpy, matplotlib, seaborn, plotly (3D interactif), scipy (CAH, distances), sklearn (K-Means, silhouette, StandardScaler)</li>
+          <li>Diagnostics de modèle : Durbin-Watson, Shapiro-Wilk, intervalles de confiance vs de prédiction</li>
+          <li>Interprétation des composantes principales (cercle des corrélations, qualité de représentation cos²)</li>
+          <li>Communication de résultats complexes sous forme de recommandations concrètes</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Difficultés rencontrées</h2>
+        <ul>
+          <li>Gérer la multicolinéarité forte des variables brutes (CO₂_charbon, CO₂_pétrole sont des composantes additives du total) - la transformation en variables intensives et le passage aux logarithmes ont été essentiels</li>
+          <li>Interpréter les composantes de l'ACP : passer des chiffres (cos², valeurs propres) à une signification réelle demande de croiser les variables les mieux représentées avec la connaissance du domaine</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'en retiens</h2>
+        <p>Ce projet m'a montré que la simplification peut être un mensonge. Une classification à 2 dimensions dit que les agro-exportateurs ressemblent aux pays émergents. En 15 dimensions, ils forment un cluster à part entière, avec un profil de GES radicalement différent. Les modèles simples sont utiles pour communiquer, mais les décisions politiques qui s'appuient sur eux sans vérifier la structure multidimensionnelle sous-jacente risquent de passer à côté d'une partie entière du problème.</p>
+      </div>
+
+      <div class="project-links">
+        <a href="#" class="btn btn-primary">GitHub</a>
+        <a href="#" class="btn btn-outline">Rapport</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="container">
+    <nav class="project-nav">
+      <a href="an2-5.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        SAÉ 4.EMS.01
+      </a>
+      <a href="an2-7.html">
+        BIP Louvain
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 15,12 9,18"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>

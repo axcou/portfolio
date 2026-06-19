@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIP Louvain - Prédiction d'affluence (OHL Football Club) – Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../index.html#projets" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour
+      </a>
+      <span class="topbar-logo">SD<span>.</span></span>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="background: linear-gradient(135deg, #11998e, #38ef7d);">
+    <div class="project-hero-inner">
+      <h1>BIP Louvain - Prédiction d'affluence (OHL Football Club)</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">Python</span>
+        <span class="hero-tag">Gradient Boosting</span>
+        <span class="hero-tag">Machine Learning</span>
+        <span class="hero-tag">Anglais</span>
+        <span class="hero-tag">Équipe internationale</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-body">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Objectif</h2>
+        <p>Dans le cadre d'un BIP à l'Université de Louvain (Belgique), collaborer avec des étudiants belges et internationaux pour construire un modèle prédictif de l'affluence au stade du OHL Football Club. À partir de 4 ans de données de matchs, prédire le nombre de spectateurs selon l'équipe adverse, la météo et le stade de la compétition. Présentation finale en anglais devant des professeurs et un membre de l'équipe data du club.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'ai fait</h2>
+        <ul>
+          <li>Exploration et nettoyage du dataset couvrant 4 saisons de matchs du OHL</li>
+          <li>Feature engineering : encodage de l'équipe adverse, variables météo, phase de compétition (championnat, coupe, play-offs)</li>
+          <li>Test comparatif de plusieurs modèles : régression linéaire, random forest, XGBoost, gradient boosting — sélection par validation croisée</li>
+          <li>Sélection et optimisation du gradient boosting comme modèle final (meilleure performance sur le jeu de test)</li>
+          <li>Préparation et réalisation de la présentation en anglais devant un jury composé de professeurs UCLouvain et d'un data analyst du club</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Résultat obtenu</h2>
+        <ul>
+          <li>Gradient boosting retenu comme meilleur modèle parmi tous ceux testés</li>
+          <li>Variables les plus prédictives identifiées : identité de l'équipe adverse et stade de la compétition (effet sur l'attractivité du match)</li>
+          <li>Présentation orale livrée en anglais devant le jury, incluant un membre opérationnel du club</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Compétences mobilisées</h2>
+        <ul>
+          <li>Machine learning supervisé : régression, random forest, gradient boosting, XGBoost</li>
+          <li>Feature engineering sur données hétérogènes (catégorielles, météo, compétition)</li>
+          <li>Évaluation et comparaison de modèles par validation croisée</li>
+          <li>Python : pandas, scikit-learn, xgboost</li>
+          <li>Collaboration en anglais avec une équipe internationale sur un cas métier réel</li>
+          <li>Restitution orale professionnelle en anglais devant un jury mixte académique et industriel</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Difficultés rencontrées</h2>
+        <ul>
+          <li>Encoder correctement les variables catégorielles à haute cardinalité (équipes adverses) sans introduire de data leakage</li>
+          <li>Travailler sur un dataset de taille limitée (4 saisons) tout en évitant le surapprentissage sur les modèles complexes</li>
+          <li>Coordonner une équipe de 7 personnes de nationalités différentes sur un sujet technique, entièrement en anglais</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'en retiens</h2>
+        <p>Présenter un modèle de machine learning à un data analyst d'un club de football professionnel, c'est une autre dimension : il connaît les données mieux que nous, il sait ce qui est réaliste. Ça m'a appris à défendre mes choix de modélisation avec des arguments métier, pas seulement des métriques. Et travailler en anglais sur un sujet technique avec des équipiers de trois nationalités différentes m'a montré que la clarté du raisonnement compte autant que la maîtrise de la langue.</p>
+      </div>
+
+      <div class="project-links">
+        <a href="#" class="btn btn-primary">GitHub</a>
+        <a href="#" class="btn btn-outline">Rapport</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="container">
+    <nav class="project-nav">
+      <a href="an2-6.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        SAÉ 4.02
+      </a>
+      <a href="../index.html#projets">
+        Retour aux projets
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 15,12 9,18"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>

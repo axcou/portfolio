@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAÉ 2.06 - Analyse de données, reporting et datavisualisation – Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../index.html#projets" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour
+      </a>
+      <span class="topbar-logo">SD<span>.</span></span>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+    <div class="project-hero-inner">
+      <h1>SAÉ 2.06 - Analyse de données, reporting et datavisualisation</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">Python</span>
+        <span class="hero-tag">SQL</span>
+        <span class="hero-tag">Climat</span>
+        <span class="hero-tag">Conduite de projet</span>
+        <span class="hero-tag">GitHub</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-body">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Objectif</h2>
+        <p>Premier projet intégrateur d'envergure (~120 heures), mobilisant traitement, analyse statistique et valorisation des données. Notre groupe - l'équipe Éole - a étudié l'impact des émissions de CO₂ sur le climat et les sociétés à partir de la base <em>CO₂ and Greenhouse Gas Emissions</em> d'Our World in Data (1750-2023), avec comme commanditaire fictif l'ONG Greenpeace pour une conférence intergouvernementale sur le climat.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'ai fait</h2>
+        <ul>
+          <li>Mise en place de la gestion de projet : espace Google Drive partagé, matrice RACI, suivi du temps, Trello (To Do / En cours / Terminé), GitHub pour versionner le code</li>
+          <li>Recherche et sélection de la base de données (3 sources testées avant de retenir Our World in Data)</li>
+          <li>Nettoyage du CSV avec Python (pandas) : gestion des valeurs manquantes, homogénéisation des types</li>
+          <li>Modélisation et création d'une base de données relationnelle SQL en 9 tables (country, economy, emissions_co2, sources_co2, cumulative_emissions, ghg, share_global, climate, trade)</li>
+          <li>Analyse personnelle : lien entre croissance économique et émissions de CO₂ - corrélations de Pearson par pays sur 1990-2022, normalisation pour comparer les tendances, identification des pays en découplage PIB/CO₂</li>
+          <li>Rédaction du rapport d'analyse collectif et montage de la capsule vidéo de valorisation</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Résultat obtenu</h2>
+        <p>Cinq analyses complémentaires croisées autour de la problématique : <em>comment richesse, démographie, énergie et commerce façonnent-ils les émissions de GES ?</em></p>
+        <ul>
+          <li>Découplage PIB/CO₂ - France (r = -0,13) et États-Unis (r = +0,06) stabilisent leurs émissions malgré la croissance ; Chine (r = +0,81) et Inde (r = +0,78) restent en développement intensif. Nuance : la baisse territoriale s'explique en partie par la délocalisation de la production</li>
+          <li>PIB/hab vs CO₂/hab - corrélation globale r = 0,81, mais Uruguay, Costa Rica, Colombie et Géorgie prouvent qu'un bon niveau de vie est possible avec une faible empreinte carbone</li>
+          <li>Sources fossiles - charbon 65 Gt, pétrole 52 Gt, gaz 39 Gt en 2023 ; corrélations très fortes entre sources (min 0,74) - réduire une source sans alternative provoque un transfert vers une autre</li>
+          <li>Commerce et gaz oubliés - CH₄ + N₂O = 25,4 % des GES (corrélation CH₄-N₂O : 0,969) ; la pollution est souvent déplacée via les échanges commerciaux plutôt que réellement réduite</li>
+          <li>Responsabilité historique - Chine 31,5 % des émissions mondiales en 2023, mais les États-Unis dominent les émissions cumulées pré-2005 ; les 3 gaz ont causé +1,7°C depuis 1851</li>
+        </ul>
+        <p>Livrables : rapport de ~50 pages + capsule vidéo destinée à Greenpeace</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Compétences mobilisées</h2>
+        <ul>
+          <li>Gestion de projet : RACI, Trello, GitHub, suivi du temps en équipe de 5</li>
+          <li>Pipeline de données complet : CSV -> nettoyage Python -> modélisation relationnelle -> SQL</li>
+          <li>Statistiques descriptives bivariées : corrélation de Pearson, normalisation, régression</li>
+          <li>Datavisualisation Python : graphiques comparatifs, nuages de points avec droite de régression, barres empilées</li>
+          <li>Rédaction d'un rapport analytique structuré (FR + EN) et production d'une capsule vidéo</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Difficultés rencontrées</h2>
+        <ul>
+          <li>Trouver la bonne base de données a pris un temps considérable : deux sources testées et abandonnées avant de revenir à Our World in Data, qui s'est imposée pour sa richesse et sa cohérence</li>
+          <li>Structurer le CSV en schéma relationnel SQL : regrouper les variables par thème tout en garantissant l'intégrité référentielle entre les 9 tables</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'en retiens</h2>
+        <p>Ce projet m'a montré ce que signifie vraiment conduire un projet de données de bout en bout - du choix de la source au montage vidéo final. La gestion de projet n'est pas une formalité : sans RACI et Trello, cinq personnes travaillant en parallèle auraient produit cinq analyses indépendantes plutôt qu'une histoire cohérente. C'est aussi le projet où j'ai le mieux compris que la responsabilité climatique ne se lit pas dans un seul indicateur - elle est cumulative, délocalisable, et nécessite des lectures croisées pour être honnête.</p>
+      </div>
+
+      <div class="project-links">
+        <a href="#" class="btn btn-primary">GitHub</a>
+        <a href="#" class="btn btn-outline">Rapport</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="container">
+    <nav class="project-nav">
+      <a href="an1-11.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        SAÉ 2.05
+      </a>
+      <a href="../index.html#projets">
+        Retour aux projets
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 15,12 9,18"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>

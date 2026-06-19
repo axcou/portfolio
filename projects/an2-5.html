@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAÉ 4.EMS.01 - Expliquer ou prédire une variable quantitative à partir de plusieurs facteurs – Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../index.html#projets" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour
+      </a>
+      <span class="topbar-logo">SD<span>.</span></span>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+    <div class="project-hero-inner">
+      <h1>SAÉ 4.EMS.01 - Expliquer ou prédire une variable quantitative à partir de plusieurs facteurs</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">Python</span>
+        <span class="hero-tag">Régression multiple</span>
+        <span class="hero-tag">Diagnostics</span>
+        <span class="hero-tag">Data Mining</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-body">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Objectif</h2>
+        <p>Dans le cadre du projet Data Mining sur les émissions mondiales de CO₂ (OWID + EDGAR, 218 pays, 2013-2022), construire un modèle de régression linéaire multiple pour expliquer le CO₂ par habitant à partir de variables intensives - et quantifier ce que le PIB seul ne capture pas. Projet réalisé avec Ibrahim Benkherfellah et Nathan Ruelle.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'ai fait</h2>
+        <ul>
+          <li>Calculé les corrélations bivariées entre CO₂/hab et 15 variables intensives candidates ; variable la plus corrélée : PIB/hab (r = 0,746, R² = 0,556)</li>
+          <li>Sélectionné les variables par critère R² ajusté (pénalise la complexité) - comparaison de modèles à 2, 5 et 6 variables</li>
+          <li>Ajusté le modèle final à 6 variables : PIB/hab, part charbon, CH₄ fugitif/hab, CH₄ déchets/hab, F-gaz industriels/hab, intensité énergétique</li>
+          <li>Diagnostics complets : test F (F(6,157) = 150,00, p &lt; 1,11e-16), Durbin-Watson ≈ 2,07 (pas d'autocorrélation), Shapiro-Wilk (normalité rejetée mais acceptable pour n=164)</li>
+          <li>Vérifié la couverture des intervalles : IC 95 % -> 39,6 % des observations, IP 95 % -> 95,1 %</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Résultat obtenu</h2>
+        <ul>
+          <li>Modèle final : R² = 0,852, R²_ajusté = 0,846 - gain de +29,5 points par rapport au PIB seul (0,556)</li>
+          <li>Équation : ŷ = -1,20 + 0,0001×PIB/hab + 3,46×Part charbon + 1,11×CH₄ fugitif + 0,67×CH₄ déchets + 3,44×F-gaz industriels</li>
+          <li>Le charbon est le prédicteur au coefficient le plus fort (3,46) - invisible en bivarié simple, déterminant une fois les autres variables contrôlées</li>
+          <li>Interprétation : à iso-PIB, les choix de mix énergétique expliquent 30 % de variance supplémentaire sur les émissions</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Compétences mobilisées</h2>
+        <ul>
+          <li>Sélection de variables par R² ajusté, analyse de la corrélation bivariée comme point de départ</li>
+          <li>Régression linéaire multiple sous Python (scipy, sklearn)</li>
+          <li>Diagnostics complets : test F, Durbin-Watson, Shapiro-Wilk, intervalles de confiance vs de prédiction</li>
+          <li>Interprétation des coefficients "toutes choses égales par ailleurs" dans un contexte multidimensionnel</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Difficultés rencontrées</h2>
+        <ul>
+          <li>Les variables brutes (CO₂_charbon, CO₂_pétrole...) sont des composantes additives du total - les utiliser directement crée une multicolinéarité mécanique ; passer aux variables intensives (parts, ratios) a résolu le problème</li>
+          <li>Le charbon a une faible corrélation bivariée avec CO₂/hab mais un coefficient fort en régression multiple - comprendre pourquoi (effet de masquage par le PIB) a été le principal travail d'interprétation</li>
+        </ul>
+      </div>
+
+      <div class="project-section">
+        <h2>Ce que j'en retiens</h2>
+        <p>La corrélation bivariée donne une première image, jamais la vraie. Le charbon semblait peu lié aux émissions par habitant jusqu'à ce qu'on contrôle le niveau de développement - là, il devient le prédicteur le plus fort. C'est exactement ce que la régression multiple permet : isoler l'effet d'une variable en maintenant les autres constantes. Cela change radicalement les conclusions qu'on tire des données.</p>
+      </div>
+
+      <div class="project-links">
+        <a href="#" class="btn btn-primary">GitHub</a>
+        <a href="#" class="btn btn-outline">Rapport</a>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="container">
+    <nav class="project-nav">
+      <a href="an2-4.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        SAÉ 3.EMS.04
+      </a>
+      <a href="an2-6.html">
+        SAÉ 4.02
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 15,12 9,18"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>
