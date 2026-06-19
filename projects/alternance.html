@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bilan d'alternance - Salvia Développement – Portfolio</title>
+  <link rel="stylesheet" href="project.css" />
+</head>
+<body>
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a href="../index.html#experience" class="back-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour
+      </a>
+      <span class="topbar-logo">SD<span>.</span></span>
+    </div>
+  </nav>
+
+  <header class="project-hero" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+    <div class="project-hero-inner">
+      <h1>Alternance - Salvia Développement</h1>
+      <div class="hero-tags">
+        <span class="hero-tag">Python</span>
+        <span class="hero-tag">SQL Server</span>
+        <span class="hero-tag">Data Engineering</span>
+        <span class="hero-tag">Entrepôt de données</span>
+        <span class="hero-tag">Fév. 2026 - Sept. 2027</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="project-body">
+    <div class="container">
+
+      <div class="project-section">
+        <h2>Contexte</h2>
+        <p>Salvia Développement est un éditeur de logiciels métiers pour le logement social. J'interviens au sein du pôle Finance, sous la direction de Gaël Gerard (Référent Technique Gamme Finance) et de Wanig Guillo (Chef Data du groupe), sur la construction d'un entrepôt de données centralisant deux systèmes aux logiques métier distinctes, jusqu'ici non consolidés : une solution de gestion des financements et une solution de gestion du patrimoine immobilier.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Traiter des données à des fins décisionnelles</h2>
+        <p><em>Outils : Python (PyYAML, json, xml.etree, python-docx), SQL Server, optimisation de requêtes (tables temporaires, caches, index)</em></p>
+        <ul>
+          <li>Développement d'un script Python de détection automatique de clés de jointure entre deux bases SQL Server contenant chacune plusieurs centaines de colonnes. Le défi principal était l'explosion combinatoire : un filtrage préalable par types de données, combiné à des caches de valeurs distinctes et des requêtes optimisées, a ramené le traitement de plusieurs jours à quelques minutes.</li>
+          <li>Développement de deux scripts de transformation documentaire (YAML/JSON et XML vers tableaux Word structurés via python-docx) pour rendre les données des contrats API accessibles aux équipes métier sans passer par les développeurs.</li>
+          <li>Acquis : optimisation de requêtes SQL en contexte de production, manipulation de structures de données hétérogènes, automatisation de traitements à forte valeur ajoutée.</li>
+        </ul>
+        <p>Recul : le premier script fonctionnait mais n'était pas robuste aux cas particuliers. Confronté à des fichiers sources variables en production, j'ai dû reprendre la logique de parsing entièrement pour gérer les structures imbriquées. Ce cycle m'a appris qu'un traitement de données "qui marche sur l'exemple" n'est pas un traitement de données fiable.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Analyser statistiquement les données</h2>
+        <p><em>Outils : Python, SQL Server, scoring de similarité par valeurs communes</em></p>
+        <ul>
+          <li>Mise en place d'un scoring quantitatif basé sur le taux de valeurs communes entre colonnes, avec des seuils de filtrage pour écarter les colonnes trop pauvres sémantiquement. L'analyse a produit un classement des paires candidates, dont la plus prometteuse atteint un taux de correspondance très élevé.</li>
+          <li>Acquis : construction d'un indicateur de similarité, arbitrage entre couverture statistique et pertinence sémantique, lecture critique des résultats produits.</li>
+        </ul>
+        <p>Recul : c'est la compétence la moins directement mobilisée dans mon alternance. L'identification de clés de jointure relève davantage de l'ingénierie des données que de l'analyse statistique au sens strict. Un fort taux de correspondance est encourageant, mais il ne garantit pas que les valeurs partagées correspondent aux mêmes entités métier : la validation sémantique reste une étape humaine irremplaçable.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Valoriser une production dans un contexte professionnel</h2>
+        <p><em>Outils : Python (python-docx), réunions parties prenantes, livrables Word et Excel</em></p>
+        <ul>
+          <li>Organisation et animation de réunions avec le référent technique, la cheffe de marché Patrimoine et le directeur commercial pour recueillir les besoins autour de l'entrepôt. Ces échanges ont produit une synthèse d'architecture couvrant le modèle en étoile, les enjeux de traçabilité, la gestion RGPD et la normalisation des référentiels.</li>
+          <li>Les outils de transformation documentaire ont eu un impact direct sur les équipes : les contrats API sont désormais lisibles sans passer par les développeurs.</li>
+          <li>Acquis : interface technique/métier, conduite de réunions avec des interlocuteurs de niveaux variés (technique, produit, commercial), production de livrables structurés et réutilisables.</li>
+        </ul>
+        <p>Recul : au début, mes synthèses étaient trop techniques pour être utilisables par les équipes produit. J'ai appris à séparer les enjeux fonctionnels des détails d'implémentation, et à adapter le niveau d'abstraction selon l'interlocuteur, un réflexe qui ne s'acquiert qu'en situation réelle.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Modéliser les données dans un cadre statistique</h2>
+        <p><em>Outils : conception star schema, modélisation multi-tenant, Python, SQL Server</em></p>
+        <ul>
+          <li>Conception d'une architecture en étoile (tables de faits / tables de dimensions) pour l'entrepôt de données Finance et Maîtrise d'Ouvrage, adaptée aux usages analytiques ciblés : comparaisons inter-organismes, suivi temporel, indicateurs sectoriels.</li>
+          <li>La contrainte multi-tenant (isolation des données par client tout en mutualisant l'infrastructure) a nécessité une réflexion sur l'architecture au-delà du schéma relationnel classique, en intégrant les enjeux RGPD dès la conception.</li>
+          <li>Acquis : modélisation décisionnelle (star schema), articulation entre besoins métier et contraintes techniques, sensibilisation aux enjeux de gouvernance et de conformité des données.</li>
+        </ul>
+        <p>Recul : la modélisation dans mon alternance est orientée data engineering plutôt que modélisation statistique au sens académique. Je n'ai pas encore déployé de modèles prédictifs en production : l'entrepôt que je construis est le socle qui rendra ces analyses possibles, mais ce pas reste à franchir. C'est un point à consolider dans la suite de l'alternance.</p>
+      </div>
+
+      <div class="project-section">
+        <h2>Bilan</h2>
+        <p>Cette alternance m'expose à des dimensions que la formation seule ne peut reproduire : la complexité des systèmes d'information réels, les contraintes de maintenabilité et de fiabilité en production, et la nécessité de justifier chaque choix technique devant une équipe. La prise de conscience la plus forte : la valeur d'une donnée dépend avant tout de sa capacité à être documentée et comprise, sans quoi elle reste techniquement disponible mais pratiquement inutilisable. Les compétences acquises hors formation (Git, Docker, CI/CD, gestion de projet) commencent à dessiner le profil d'ingénierie que je veux construire.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="container">
+    <nav class="project-nav">
+      <a href="../index.html#experience">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+        Retour à l'expérience
+      </a>
+    </nav>
+  </div>
+
+</body>
+</html>
